@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://tiles1.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 8 )
+
+[node name="WorldTilemapStatic" type="Node2D"]
+
+[node name="TileRed" type="Sprite" parent="."]
+position = Vector2( 8, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileRed"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileRed/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="TileOrange" type="Sprite" parent="."]
+position = Vector2( 24, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileOrange"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileOrange/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="TileYellow" type="Sprite" parent="."]
+position = Vector2( 40, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileYellow"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileYellow/StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="TileGreen" type="Sprite" parent="."]
+position = Vector2( 56, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileGreen"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileGreen/StaticBody2D"]
+shape = SubResource( 4 )
+
+[node name="TileCyan" type="Sprite" parent="."]
+position = Vector2( 72, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 64, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileCyan"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileCyan/StaticBody2D"]
+shape = SubResource( 5 )
+
+[node name="TileBlue" type="Sprite" parent="."]
+position = Vector2( 88, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 80, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileBlue"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileBlue/StaticBody2D"]
+shape = SubResource( 6 )
+
+[node name="TileMagenta" type="Sprite" parent="."]
+position = Vector2( 104, 8 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 96, 0, 16, 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TileMagenta"]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="TileMagenta/StaticBody2D"]
+shape = SubResource( 7 )
