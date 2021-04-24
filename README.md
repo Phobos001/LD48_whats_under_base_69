@@ -1,1 +1,3 @@
-# LD48_whats_under_base_69
+# Ludum Dare 48 Game - What's Under Base 69?
+
+## WIP
