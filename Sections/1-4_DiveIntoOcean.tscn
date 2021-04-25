@@ -1,3 +1,85 @@
-[gd_scene format=2]
+[gd_scene load_steps=13 format=2]
 
-[node name="1-4_DiveIntoOcean" type="Node2D"]
+[ext_resource path="res://sprites/intro_helicopter_unanimated.png" type="Texture" id=1]
+[ext_resource path="res://sprites/ocean_strech.png" type="Texture" id=2]
+[ext_resource path="res://skyline.png" type="Texture" id=3]
+[ext_resource path="res://sprites/1-4/1-4_char_dancing1.png" type="Texture" id=4]
+[ext_resource path="res://Sections/g_camera_setcurrentonready.gd" type="Script" id=5]
+[ext_resource path="res://scripts/g_zoom_in_on_position.gd" type="Script" id=6]
+[ext_resource path="res://Sections/1-4_DiveIntoOcean.gd" type="Script" id=7]
+[ext_resource path="res://scripts/g_helicopter_bobbing.gd" type="Script" id=8]
+[ext_resource path="res://spr_tutorial_moving.png" type="Texture" id=9]
+[ext_resource path="res://sprites/1-4/char_diving_helmet.png" type="Texture" id=10]
+[ext_resource path="res://spr_tutorial_use.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "1-4_DiveIntoOcean"
+length = 30.0
+
+[node name="1-4_DiveIntoOcean" type="Node"]
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/1-4_DiveIntoOcean = SubResource( 1 )
+
+[node name="Background" type="Node" parent="AnimationPlayer"]
+
+[node name="skyline" type="Sprite" parent="AnimationPlayer/Background"]
+modulate = Color( 0.760784, 0.745098, 1, 1 )
+position = Vector2( -11.0103, -22.1868 )
+scale = Vector2( 40.168, 6.33523 )
+texture = ExtResource( 3 )
+
+[node name="ocean_strech" type="Sprite" parent="AnimationPlayer/Background"]
+position = Vector2( -40.5244, 1377.61 )
+scale = Vector2( 5192.84, 0.306609 )
+texture = ExtResource( 2 )
+
+[node name="OceanDeep" type="Polygon2D" parent="AnimationPlayer/Background/ocean_strech"]
+position = Vector2( -4.55273, 10196.8 )
+scale = Vector2( 0.000192573, 0.605929 )
+color = Color( 0.027451, 0.117647, 0.6, 1 )
+polygon = PoolVector2Array( -60519.4, -16664.2, 110745, -16408.2, 109593, 26471.8, -61927.4, 23527.8 )
+
+[node name="Objects" type="Node" parent="AnimationPlayer"]
+
+[node name="Node2D" type="Node2D" parent="AnimationPlayer/Objects"]
+script = ExtResource( 8 )
+bob_strength = 8.0
+
+[node name="Helicopter" type="Sprite" parent="AnimationPlayer/Objects/Node2D"]
+position = Vector2( 26.1016, 1150 )
+texture = ExtResource( 1 )
+
+[node name="Player" type="Sprite" parent="AnimationPlayer/Objects/Node2D/Helicopter"]
+position = Vector2( -78.1111, 14.3713 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 10, 10, 50, 50 )
+
+[node name="PlayerShakeSprite" type="Sprite" parent="AnimationPlayer/Objects/Node2D/Helicopter/Player"]
+texture = ExtResource( 10 )
+region_rect = Rect2( 10, 10, 50, 50 )
+
+[node name="Node" type="Node" parent="AnimationPlayer/Objects"]
+script = ExtResource( 6 )
+target_node_path = NodePath("../Node2D/Helicopter/Player")
+target_zoom = 0.25
+target_zoom_speed = 1.0
+target_node_speed = 5.0
+
+[node name="Camera2D" type="Camera2D" parent="AnimationPlayer/Objects/Node"]
+position = Vector2( 0, 1150 )
+current = true
+script = ExtResource( 5 )
+
+[node name="TutMove" type="Sprite" parent="AnimationPlayer/Objects/Node/Camera2D"]
+texture = ExtResource( 9 )
+
+[node name="TutUse" type="Sprite" parent="AnimationPlayer/Objects/Node/Camera2D"]
+texture = ExtResource( 11 )
+
+[node name="ZZ_Editor_ScrollingMin" type="Node2D" parent="AnimationPlayer"]
+position = Vector2( -232144, -232144 )
+
+[node name="ZZ_Editor_ScrollingMax" type="Node2D" parent="AnimationPlayer"]
+position = Vector2( 232144, 232144 )
